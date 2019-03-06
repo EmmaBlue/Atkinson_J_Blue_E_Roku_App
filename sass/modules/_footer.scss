@@ -25,4 +25,81 @@ footer {
 			color: rgba(255, 255, 255, 0.3);
 		}
 	}
+
+
+
+    background-color: $main-color;
+    display: flex;
+    justify-content: left;
+
+        .flexTab {
+
+            margin-top: 12px;
+            margin-bottom: 12px;
+
+        ul  {
+
+            margin: 0 auto;
+            text-align: center;
+            
+            li {
+
+            display: inline-block;
+            margin-right: 10px;
+
+                a {
+
+                    text-decoration: none;
+                    color: $main-color;
+                    font-size: 1.25em;
+
+                }
+
+
+                i {
+
+                    background-color: white;
+                    padding: 10px;
+                    border-radius: 50%;
+                    transition: color 0.5s ease;
+
+                }
+
+                i:hover {
+
+        
+                    color: black;
+                    background-color: white;
+                }
+
+                
+
+
+            } 
+        }
+
+        p {
+
+            text-align: center;
+            padding: 5px 24px 5px 24px;
+
+            color: white;
+
+        }
+
+    }
 }
+
+/*@media screen and (min-width: 600px) {
+    footer .flexTab p {
+        padding-left: 0em;
+        text-align: center;
+        margin-top: 25px;
+        position: absolute;
+        right: 20px;
+        margin-bottom:0px;
+    }
+    footer .flexTab ul {
+        margin: inherit;
+    }
+}*/
