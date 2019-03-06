@@ -18,6 +18,14 @@ let router = new VueRouter({
 const vm = new Vue({
  
   data: {
+    socItems: [
+
+      {link:"http://www.twitter.com", id: "twitter", class: "fab fa-twitter"},
+      {link:"http://www.facebook.com", id: "facebook", class: "fab fa-facebook-square"},
+      {link:"http://www.instagram.com", id: "instagram", class: "fab fa-instagram"},
+      {link:"https://www.youtube.com/", id: "instagram", class: "fab fa-youtube"},
+
+    ],
     authenticated: false,
     administrator: false,
 

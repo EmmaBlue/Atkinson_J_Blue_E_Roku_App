@@ -18,17 +18,31 @@
   <main id="app">
 	<div class="container-fluid">
 		<div class="row">
-			<header class="col-sm-12 fixed-top">
-				<img src="images/roku.svg" alt="Roku logo" width="90"><span>FlashBack</span>
-				<nav class="float-right">
-				<ul>
-					<!-- <li>Kids</li> -->            
-					<li v-if="authenticated"><i class="fas fa-user-circle"></i></li>
-					<li v-if="administrator"><i class="fas fa-cog"></i></li>
-					<li v-if="authenticated" v-on:click="logout()"><i class="fas fa-power-off"></i></li>					
-				</ul>
-				</nav>
-			</header>
+
+			<header id="main-header">
+				<div class="navArea">
+					<!-- Start Mobile Nav -->
+					<input type="checkbox" class="nav_box" id="nav-toggle">
+					<label for="nav-toggle" class="nav_but">
+							<span class="nav_icon">&nbsp;</span>
+					</label>
+					<!-- End Mobile Nav -->
+					<div class="nav_background"></div>
+						<nav class="nav_full">
+							<h3 class="hidden">Main Navigation</h3>
+							<ul class="nav_list">
+								 <li v-if="authenticated" class="nav_item"><router-link to="/" class="nav_link">Home</router-link></li>
+								<li v-if="administrator" class="nav_item"><router-link to="/parents" class="nav_link">Parents</router-link></li>
+								 <li v-if="authenticated" class="nav_item"> <router-link to="/kids" class="nav_link">Kids</router-link></li>
+								 <li class="nav_item"  v-if="authenticated" v-on:click="logout()"><i class="fas fa-power-off"></li>
+							</ul>
+						</nav>
+				</div>
+				<section id="logo-sect">
+					<h2 class="hidden">Logo</h2>
+					<div><p>Roku TV</p></div>
+				  </section>
+			  </header>
 		</div>
 		
 		<div class="toast float-right" role="alert" aria-live="assertive" aria-atomic="true" data-delay="2500">
@@ -51,15 +65,12 @@
 	</main>
 
 	<footer>
-		<p class="copy">
-			&copy; 2018 The Awesome Company, Inc
-		</p>
-
-		<ul class="float-right">
-			<li><i class="fab fa-facebook"></i></li>
-			<li><i class="fab fa-twitter-square"></i></li>
-			<li><i class="fab fa-google-plus-square"></i></li>
-			<li><i class="fab fa-instagram"></i></li>
+			<ul class="socNav">
+			<li v-for="item in socItems">
+				<a :href="item.link" target="_blank" :id="item.id">
+					<i :class="item.class"></i>
+				</a>
+			</li>
 		</ul>
 	</footer>
 
