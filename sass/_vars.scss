@@ -10,7 +10,7 @@ $roku-purple: #6C3C97;
 }
 
 
-/*@font-face {
+@font-face {
     font-family: 'bauhaus-boldregular';
     src: url('../fonts/bauhaub-webfont.woff2') format('woff2'),
          url('../fonts/bauhaub-webfont.woff') format('woff');
@@ -21,13 +21,12 @@ $roku-purple: #6C3C97;
 
 
 @font-face {
-    font-family: 'webfontregular';
-    src: url('../fonts/helveticaneuemedium-webfont.woff2') format('woff2'),
-         url('../fonts/helveticaneuemedium-webfont.woff') format('woff');
+    font-family: 'helveticaneue-medium';
+    src: url('../fonts/helveticaneue-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 
-}*/
+}
 
 
 $main-color: #73429B; 
@@ -35,5 +34,5 @@ $second-color: #77479d;
 $dark-color: #3C3C3C;
 $white: #F5F5F5;
 $heading-font: "bauhaus-boldregular", sans-serif; 
-$reg-font: "webfontregular", sans-serif; 
+$reg-font: "helveticaneue-medium", sans-serif; 
   
