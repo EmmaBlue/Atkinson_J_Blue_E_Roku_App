@@ -3,13 +3,52 @@
     margin: 70px 30px 0 !important;
 }
 
+#loginRokuLogo {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#loginFlashbackLogo {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+}
+
+#loginForm {
+    margin-top: 60px;
+}
+
 .form-titles {
     color: $main-color;
     font-family: $reg-font;
     font-size: 1.5em;
-    margin-top: 5px;
+    margin-top: 10px;
+}
+
+p.form-titles {
+    margin-bottom: 0.2rem;
 }
 
 .form-row {
     display: block;
+}
+
+.btn-primary{
+    color: $main-color;
+    background-color: $white;
+    border-color: $white;
+    box-shadow: 1px 1px 5px rgba(0,0,0,0.15)
+}
+
+
+.btn-primary:hover{
+    color: $white;
+    background-color: $main-color;
+    border-color: $main-color;
+}
+
+button, select{
+    text-transform: uppercase;
 }
