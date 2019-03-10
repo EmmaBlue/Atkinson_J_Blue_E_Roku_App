@@ -1,5 +1,10 @@
   /* FLOATING NAVIGATION TOGGLE BUTTON */
   
+  #main-header{
+    background-color: $main-color;
+    padding: 15px 14px;
+  }
+
   .nav_box {
     display: none;
   }
@@ -28,6 +33,7 @@
     background-color: transparent;
     z-index: 1000;
     opacity: 1;
+    
   
   
   }
@@ -98,15 +104,15 @@
   
   .nav_icon {
     position: relative;
-    margin-top: 3rem;
+    margin-top: 1.5rem;
   }
   
   .nav_icon,
   .nav_icon::before,
   .nav_icon::after {
-    width: 2.5em;
+    width: 2em;
     height: 6px;
-    background-color: white;
+    background-color: $white;
     display: inline-block;
   }
   
