@@ -2,23 +2,24 @@ export default {
     template: `
         <div class="container">
             <div class="jumbotron roku-jumbotron">
-                <h1 class="display-4">Welcome to Flashback!</h1>
-                <p class="lead">Before revisiting your favourite movies, tv shows or music from yesteryear, please log in with a valid username and password.</p>
-                <hr class="my-4">
-                <form>
+                <img src="images/roku.svg" id="loginRokuLogo" alt="Roku Logo" width="250">
+                <img src="images/flashback-purple.svg" id="loginFlashbackLogo" alt="Flashback Logo" width="200">
+                <form id="loginForm">
                     <div class="form-row align-items-center">
-                        <div class="col-md-3 my-1">
+                        <div class="offset-md-4 col-md-4 my-2">
+                            <p class="form-titles">Username:</p>
                             <label class="sr-only" for="inlineFormInputName">Name</label>
-                            <input v-model="input.username" type="text" class="form-control" id="inlineFormInputName" placeholder="username" required>
+                            <input v-model="input.username" type="text" class="form-control" id="formUsername" required>
                         </div>
 
-                        <div class="col-md-3 my-1">
+                        <div class="offset-md-4 col-md-4 my-2">
+                            <p class="form-titles">Password:</p>
                             <label class="sr-only" for="inlineFormPassword">Name</label>
-                            <input v-model="input.password" type="password" class="form-control" id="inlineFormPassword" placeholder="password" required>
+                            <input v-model="input.password" type="password" class="form-control" id="formPassword" required>
                         </div>
 
-                        <div class="col-auto my-1">
-                            <button v-on:click.prevent="login()" type="submit" class="btn btn-primary">Go!</button>
+                        <div class="offset-md-7 my-2">
+                            <button v-on:click.prevent="login()" type="submit" class="btn btn-primary" id="signInBtn">Sign In</button>
                         </div>
                     </div>
                 </form>            

@@ -1,6 +1,7 @@
 .fs-video { width: 100% }
 
-.media-container { background: darken($dark-bg, 15%)}
+.media-container { background: darken($dark-bg, 15%); }
+.media-container { color: white; }
 .media-container:first-of-type { padding-bottom: 1em; }
 .media-container:last-of-type { padding-left: 0; padding-right: 0; }
 
@@ -22,6 +23,7 @@
 .media-type { 
     list-style-type: none;
     margin-bottom: 0;
+    color: white;
     
     li { 
         padding: 1rem;

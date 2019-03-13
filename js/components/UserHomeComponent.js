@@ -97,7 +97,7 @@ export default {
 
             // push first (or random) media object here (selected / filtered on create)
             currentMediaDetails: { 
-                source: "avengers.mp4",
+                source: "Guardians.mp4",
             },
 
             // could add more media types here in future

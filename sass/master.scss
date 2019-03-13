@@ -7,20 +7,22 @@
 @import 'modules/mediaqueries';
 @import 'modules/_nav';
 
-
+#app {
+    background-color: $white;
+}
 
 body {
 
     color:black; 
     background-color:white;
     font-family: $reg-font;
+    background: none;
 
     h2 {
 
-        font-family: $heading-font;
+        font-family: $reg-font;
 
     }
-
 }
 
 .hidden {
