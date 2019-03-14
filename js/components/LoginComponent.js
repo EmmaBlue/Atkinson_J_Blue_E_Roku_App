@@ -62,7 +62,7 @@ export default {
                         console.error("authentication failed, please try again");
                         this.$emit("autherror", data);
                     } else {
-                        this.$emit("authenticated", true, data[0]);
+                        this.$emit("authenticated", true, data, true);
                         this.$router.replace({ name: "users" });
                     }
                 })

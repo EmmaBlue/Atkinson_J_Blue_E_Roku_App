@@ -60,9 +60,13 @@ const vm = new Vue({
   },
 
   methods: {
-    setAuthenticated(status, data) {
+    setAuthenticated(status, data, access) {
       this.authenticated = status;
       this.user = data;
+      if (this.user.admin == 1){
+
+        this.administrator = access;
+      }
     },
 
     popError(errorMsg) {

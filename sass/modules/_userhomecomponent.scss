@@ -1,7 +1,7 @@
 .fs-video { width: 100% }
 
-.media-container { background: darken($dark-bg, 15%); }
-.media-container { color: white; }
+.media-container { background-color: $main-color; }
+.media-container { color: $white; }
 .media-container:first-of-type { padding-bottom: 1em; }
 .media-container:last-of-type { padding-left: 0; padding-right: 0; }
 
@@ -17,7 +17,7 @@
 .media-year, .media-time { font-size: 1em; }
 .media-year { display: block; float: right; }
 
-.side-nav { background: darken($dark-bg, 9%) }
+.side-nav { background-color: $main-color; }
 
 // left hand pad list -> audio, film television
 .media-type { 
