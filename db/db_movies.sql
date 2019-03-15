@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Generation Time: Mar 13, 2019 at 04:15 PM
+-- Generation Time: Mar 15, 2019 at 07:07 PM
 -- Server version: 5.6.35
 -- PHP Version: 7.0.15
 
@@ -54,34 +54,35 @@ CREATE TABLE `tbl_audio` (
   `era_id` smallint(6) NOT NULL,
   `audio_title` varchar(125) DEFAULT NULL,
   `audio_cover` varchar(75) DEFAULT 'temp_cover.jpg',
-  `audio_src` varchar(40) DEFAULT NULL
+  `audio_src` varchar(40) DEFAULT NULL,
+  `audio_rating` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tbl_audio`
 --
 
-INSERT INTO `tbl_audio` (`audio_id`, `era_id`, `audio_title`, `audio_cover`, `audio_src`) VALUES
-(1, 1, 'Jerry Lee Lewis - Great Balls of Fire', 'fire.jpg', 'fire.mp3'),
-(2, 1, 'Little Richard - Long Tall Sally', 'sally.jpg', 'sally.mp3'),
-(3, 1, 'Johnny Cash - I Walk The Line', 'walk.jpg', 'walk.mp3'),
-(4, 1, 'Elvis Presley - Blue Suede Shoes', 'shoes.jpg', 'shoes.mp3'),
-(5, 2, 'Chubby Checker - The Twist', 'twist.jpg', 'twist.mp3'),
-(6, 2, 'Marvin Gaye - I Heard It Through The Grapevine', 'grapevine.jpg', 'grapevine.mp3'),
-(7, 2, 'The Beatles - I Want To Hold Your Hand', 'hand.jpg', 'hand.mp3'),
-(8, 2, 'The Beach Boys - Good Vibrations', 'vibrations.jpg', 'vibrations.mp3'),
-(9, 3, 'The Jackson 5 - I Will Be There', 'there.jpg', 'there.mp3'),
-(10, 3, 'Sugarloaf Green - Eyed Lady', 'eyed.jpg', 'eyed.mp3'),
-(11, 3, 'The Beatles - Let It Be', 'let.jpg', 'let.mp3'),
-(12, 3, 'The Guess Who - American Woman', 'american.jpg', 'american.mp3'),
-(13, 4, 'Queen - Another One Bites the Dust', 'dust.jpg', 'dust.mp3'),
-(14, 4, 'Barbra Streisand - Woman in Love', 'woman.jpg', 'woman.mp3'),
-(15, 4, 'Men at Work - Down Under', 'under.jpg', 'under.mp3'),
-(16, 4, 'Talking Heads - Once in a Lifetime', 'lifetime.jpg', 'lifetime.mp3'),
-(17, 5, 'Vanilla Ice - Ice Ice Baby', 'ice.jpg', 'ice.mp3'),
-(18, 5, 'M.C. Hammer - U Cant Touch This', 'touch.jpg', 'touch.mp3'),
-(19, 5, 'Madonna - Vogue', 'vogue.jpg', 'vogue.mp3'),
-(20, 5, 'Whitney Houston - Im Your Baby Tonight', 'tonight.jpg', 'tonight.mp3');
+INSERT INTO `tbl_audio` (`audio_id`, `era_id`, `audio_title`, `audio_cover`, `audio_src`, `audio_rating`) VALUES
+(1, 1, 'Jerry Lee Lewis - Great Balls of Fire', 'fire.jpg', 'fire.mp3', 'PG'),
+(2, 1, 'Little Richard - Long Tall Sally', 'sally.jpg', 'sally.mp3', 'G'),
+(3, 1, 'Johnny Cash - I Walk The Line', 'walk.jpg', 'walk.mp3', 'G'),
+(4, 1, 'Elvis Presley - Blue Suede Shoes', 'shoes.jpg', 'shoes.mp3', 'G'),
+(5, 2, 'Chubby Checker - The Twist', 'twist.jpg', 'twist.mp3', 'G'),
+(6, 2, 'Marvin Gaye - I Heard It Through The Grapevine', 'grapevine.jpg', 'grapevine.mp3', 'G'),
+(7, 2, 'The Beatles - I Want To Hold Your Hand', 'hand.jpg', 'hand.mp3', 'PG'),
+(8, 2, 'The Beach Boys - Good Vibrations', 'vibrations.jpg', 'vibrations.mp3', 'PG'),
+(9, 3, 'The Jackson 5 - I Will Be There', 'there.jpg', 'there.mp3', 'G'),
+(10, 3, 'Sugarloaf Green - Eyed Lady', 'eyed.jpg', 'eyed.mp3', 'PG'),
+(11, 3, 'The Beatles - Let It Be', 'let.jpg', 'let.mp3', 'G'),
+(12, 3, 'The Guess Who - American Woman', 'american.jpg', 'american.mp3', 'PG'),
+(13, 4, 'Queen - Another One Bites the Dust', 'dust.jpg', 'dust.mp3', 'PG'),
+(14, 4, 'Barbra Streisand - Woman in Love', 'woman.jpg', 'woman.mp3', 'G'),
+(15, 4, 'Men at Work - Down Under', 'under.jpg', 'under.mp3', 'G'),
+(16, 4, 'Talking Heads - Once in a Lifetime', 'lifetime.jpg', 'lifetime.mp3', 'G'),
+(17, 5, 'Vanilla Ice - Ice Ice Baby', 'ice.jpg', 'ice.mp3', 'G'),
+(18, 5, 'M.C. Hammer - U Cant Touch This', 'touch.jpg', 'touch.mp3', 'PG'),
+(19, 5, 'Madonna - Vogue', 'vogue.jpg', 'vogue.mp3', 'PG'),
+(20, 5, 'Whitney Houston - Im Your Baby Tonight', 'tonight.jpg', 'tonight.mp3', 'PG');
 
 -- --------------------------------------------------------
 
@@ -120,6 +121,44 @@ INSERT INTO `tbl_audio_arating` (`audio_arating_id`, `audio_id`, `arating_id`) V
 (18, 18, 1),
 (19, 19, 2),
 (20, 20, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_audio_era`
+--
+
+CREATE TABLE `tbl_audio_era` (
+  `audio_era_id` smallint(6) NOT NULL,
+  `audio_id` smallint(6) NOT NULL,
+  `era_id` smallint(6) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `tbl_audio_era`
+--
+
+INSERT INTO `tbl_audio_era` (`audio_era_id`, `audio_id`, `era_id`) VALUES
+(1, 1, 1),
+(2, 2, 1),
+(3, 3, 1),
+(4, 4, 1),
+(5, 5, 2),
+(6, 6, 2),
+(7, 7, 2),
+(8, 8, 2),
+(9, 9, 3),
+(10, 10, 3),
+(11, 11, 3),
+(12, 12, 3),
+(13, 13, 4),
+(14, 14, 4),
+(15, 15, 4),
+(16, 16, 4),
+(17, 17, 5),
+(18, 18, 5),
+(19, 19, 5),
+(20, 20, 5);
 
 -- --------------------------------------------------------
 
@@ -182,6 +221,28 @@ INSERT INTO `tbl_comments` (`comments_id`, `comments_auth`, `comments_copy`, `co
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `tbl_era`
+--
+
+CREATE TABLE `tbl_era` (
+  `era_id` smallint(6) NOT NULL,
+  `era_name` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `tbl_era`
+--
+
+INSERT INTO `tbl_era` (`era_id`, `era_name`) VALUES
+(1, '1950'),
+(2, '1960'),
+(3, '1970'),
+(4, '1980'),
+(5, '1990');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `tbl_genre`
 --
 
@@ -223,34 +284,35 @@ CREATE TABLE `tbl_movies` (
   `era_id` smallint(6) NOT NULL,
   `movies_cover` varchar(75) NOT NULL DEFAULT 'cover_default.jpg',
   `movies_title` varchar(125) NOT NULL,
-  `movies_trailer` varchar(75) NOT NULL DEFAULT 'trailer_default.jpg'
+  `movies_trailer` varchar(75) NOT NULL DEFAULT 'trailer_default.jpg',
+  `movies_rating` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `tbl_movies`
 --
 
-INSERT INTO `tbl_movies` (`movies_id`, `era_id`, `movies_cover`, `movies_title`, `movies_trailer`) VALUES
-(1, 1, 'bridge.jpg', 'The Bridge On The River Kwai', 'bridge.mp4'),
-(2, 1, 'vertigo.jpg', 'Vertigo', 'vertigo.mp4'),
-(3, 1, 'rear.jpg', 'Rear Window', 'rear.mp4'),
-(4, 1, 'sunset.jpg', 'Sunset Blvd', 'sunset.mp4'),
-(5, 2, 'lavventura.jpg', 'L\'Avventura', 'lavventura.mp4'),
-(6, 2, 'psycho.jpg', 'Psycho', 'psycho.mp4'),
-(7, 2, 'spartacus.jpg', 'Spartacus', 'spartacus.mp4'),
-(8, 2, 'swiss.jpg', 'Swiss Family Robinson', 'swiss.mp4'),
-(9, 3, 'jaws.jpg', 'Jaws', 'jaws.mp4'),
-(10, 3, 'godfather.jpg', 'The Godfather', 'godfather.mp4'),
-(11, 3, 'frankenstein.jpg', 'Young Frankenstein', 'frankenstein.mp4'),
-(12, 3, 'rocky.jpg', 'Rocky', 'rocky.mp4'),
-(13, 4, 'raging.jpg', 'Raging Bull', 'raging.mp4'),
-(14, 4, 'airplane.jpg', 'Airplane!', 'airplane.mp4'),
-(15, 4, 'caddyshack.jpg', 'Caddyshack', 'caddyshack.mp4'),
-(16, 4, 'fog.jpg', 'The Fog', 'fog.mp4'),
-(17, 5, 'alone.jpg', 'Home Alone', 'alone.mp4'),
-(18, 5, 'edward.jpg', 'Edward Scissorhands', 'edward.mp4'),
-(19, 5, 'turtles.jpg', 'Teenage Mutant Ninja Turtles', 'turtles.mp4'),
-(20, 5, 'awakenings.jpg', 'Awakenings', 'awakenings.mp4');
+INSERT INTO `tbl_movies` (`movies_id`, `era_id`, `movies_cover`, `movies_title`, `movies_trailer`, `movies_rating`) VALUES
+(1, 1, 'bridge.jpg', 'The Bridge On The River Kwain', 'bridge.mp4', 'PG-13'),
+(2, 1, 'vertigo.jpg', 'Vertigo', 'vertigo.mp4', 'G'),
+(3, 1, 'rear.jpg', 'Rear Window', 'rear.mp4', 'PG'),
+(4, 1, 'sunset.jpg', 'Sunset Blvd', 'sunset.mp4', 'PG'),
+(5, 2, 'lavventura.jpg', 'L\'Avventura', 'lavventura.mp4', 'PG-13'),
+(6, 2, 'psycho.jpg', 'Psycho', 'psycho.mp4', 'R'),
+(7, 2, 'spartacus.jpg', 'Spartacus', 'spartacus.mp4', 'PG'),
+(8, 2, 'swiss.jpg', 'Swiss Family Robinson', 'swiss.mp4', 'G'),
+(9, 3, 'jaws.jpg', 'Jaws', 'jaws.mp4', 'PG-13'),
+(10, 3, 'godfather.jpg', 'The Godfather', 'godfather.mp4', 'PG-13'),
+(11, 3, 'frankenstein.jpg', 'Young Frankenstein', 'frankenstein.mp4', 'PG'),
+(12, 3, 'rocky.jpg', 'Rocky', 'rocky.mp4', 'PG'),
+(13, 4, 'raging.jpg', 'Raging Bull', 'raging.mp4', 'R'),
+(14, 4, 'airplane.jpg', 'Airplane!', 'airplane.mp4', 'PG'),
+(15, 4, 'caddyshack.jpg', 'Caddyshack', 'caddyshack.mp4', 'PG'),
+(16, 4, 'fog.jpg', 'The Fog', 'fog.mp4', 'PG'),
+(17, 5, 'alone.jpg', 'Home Alone', 'alone.mp4', 'G'),
+(18, 5, 'edward.jpg', 'Edward Scissorhands', 'edward.mp4', 'PG'),
+(19, 5, 'turtles.jpg', 'Teenage Mutant Ninja Turtles', 'turtles.mp4', 'PG'),
+(20, 5, 'awakenings.jpg', 'Awakenings', 'awakenings.mp4', 'PG');
 
 -- --------------------------------------------------------
 
@@ -289,6 +351,44 @@ INSERT INTO `tbl_mov_arating` (`mov_arating_id`, `movie_id`, `arating_id`) VALUE
 (18, 18, 2),
 (19, 19, 3),
 (20, 20, 3);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_mov_era`
+--
+
+CREATE TABLE `tbl_mov_era` (
+  `mov_era_id` smallint(6) NOT NULL,
+  `movies_id` smallint(6) NOT NULL,
+  `era_id` smallint(6) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `tbl_mov_era`
+--
+
+INSERT INTO `tbl_mov_era` (`mov_era_id`, `movies_id`, `era_id`) VALUES
+(1, 1, 1),
+(2, 2, 1),
+(3, 3, 1),
+(4, 4, 1),
+(5, 5, 2),
+(6, 6, 2),
+(7, 7, 2),
+(8, 8, 2),
+(9, 9, 3),
+(10, 10, 3),
+(11, 11, 3),
+(12, 12, 3),
+(13, 13, 4),
+(14, 14, 4),
+(15, 15, 4),
+(16, 16, 4),
+(17, 17, 5),
+(18, 18, 5),
+(19, 19, 5),
+(20, 20, 5);
 
 -- --------------------------------------------------------
 
@@ -355,34 +455,35 @@ CREATE TABLE `tbl_tv` (
   `era_id` tinyint(11) NOT NULL,
   `tv_cover` varchar(75) NOT NULL DEFAULT 'cover_default.jpg',
   `tv_title` varchar(125) NOT NULL,
-  `tv_src` varchar(75) NOT NULL DEFAULT 'trailer_default.jpg'
+  `tv_src` varchar(75) NOT NULL DEFAULT 'trailer_default.jpg',
+  `tv_rating` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `tbl_tv`
 --
 
-INSERT INTO `tbl_tv` (`tv_id`, `era_id`, `tv_cover`, `tv_title`, `tv_src`) VALUES
-(1, 1, 'lucky.jpg', 'I Love Lucy', 'lucy.mp4'),
-(2, 1, 'father.jpg', 'Father Knows Best', 'father.mp4'),
-(3, 1, 'superman.jpg', 'Adventures of Superman', 'superman.mp4'),
-(4, 1, 'joan.jpg', 'I Married Joan', 'joan.mp4'),
-(5, 2, 'addams.jpg', 'The Addams Family', 'addams.mp4'),
-(6, 2, 'flintstones.jpg', 'The Flintstones', 'flintstones.mp4'),
-(7, 2, 'andy.jpg', 'The Andy Griffith Show', 'andy.mp4'),
-(8, 2, 'route.jpg', 'Route 66', 'route.mp4'),
-(9, 3, 'moore.jpg', 'The Mary Tyler Moore Show', 'moore.mp4'),
-(10, 3, 'odd.jpg', 'The Odd Couple', 'odd.mp4'),
-(11, 3, 'partridge.jpg', 'The Partridge Family', 'partridge.mp4'),
-(12, 3, 'wilson.jpg', 'The Flip Wilson Show', 'wilson.mp4'),
-(13, 4, 'magnum.jpg', 'Magnum, P.I.', 'magnum.mp4'),
-(14, 4, 'comfort.jpg', 'Too Close for Comfort', 'comfort.mp4'),
-(15, 4, 'buddies.jpg', 'Bosom Buddies', 'buddies.mp4'),
-(16, 4, 'living.jpg', 'Its a Living', 'living.mp4'),
-(17, 5, 'fresh.jpg', 'The Fresh Prince of Bel-Air', 'fresh.mp4'),
-(18, 5, 'wings.jpg', 'Wings', 'wings.mp4'),
-(19, 5, 'northern.jpg', 'Northern Exposure', 'northern.mp4'),
-(20, 5, 'bell.jpg', 'Saved by the Bell', 'bell.mp4');
+INSERT INTO `tbl_tv` (`tv_id`, `era_id`, `tv_cover`, `tv_title`, `tv_src`, `tv_rating`) VALUES
+(1, 1, 'lucy.jpg', 'I Love Lucy', 'lucy.mp4', 'PG-13'),
+(2, 1, 'father.jpg', 'Father Knows Best', 'father.mp4', 'PG-13'),
+(3, 1, 'superman.jpg', 'Adventures of Superman', 'superman.mp4', 'G'),
+(4, 1, 'joan.jpg', 'I Married Joan', 'joan.mp4', 'PG-13'),
+(5, 2, 'addams.jpg', 'The Addams Family', 'addams.mp4', 'PG'),
+(6, 2, 'flintstones.jpg', 'The Flintstones', 'flintstones.mp4', 'PG'),
+(7, 2, 'andy.jpg', 'The Andy Griffith Show', 'andy.mp4', 'G'),
+(8, 2, 'route.jpg', 'Route 66', 'route.mp4', 'G'),
+(9, 3, 'moore.jpg', 'The Mary Tyler Moore Show', 'moore.mp4', 'PG'),
+(10, 3, 'odd.jpg', 'The Odd Couple', 'odd.mp4', 'G'),
+(11, 3, 'partridge.jpg', 'The Partridge Family', 'partridge.mp4', 'PG'),
+(12, 3, 'wilson.jpg', 'The Flip Wilson Show', 'wilson.mp4', 'PG-13'),
+(13, 4, 'magnum.jpg', 'Magnum, P.I.', 'magnum.mp4', 'G'),
+(14, 4, 'comfort.jpg', 'Too Close for Comfort', 'comfort.mp4', 'G'),
+(15, 4, 'buddies.jpg', 'Bosom Buddies', 'buddies.mp4', 'G'),
+(16, 4, 'living.jpg', 'Its a Living', 'living.mp4', 'PG'),
+(17, 5, 'fresh.jpg', 'The Fresh Prince of Bel-Air', 'fresh.mp4', 'PG'),
+(18, 5, 'wings.jpg', 'Wings', 'wings.mp4', 'PG-13'),
+(19, 5, 'northern.jpg', 'Northern Exposure', 'northern.mp4', 'G'),
+(20, 5, 'bell.jpg', 'Saved by the Bell', 'bell.mp4', 'PG-13');
 
 -- --------------------------------------------------------
 
@@ -425,6 +526,44 @@ INSERT INTO `tbl_tv_arating` (`tv_arating_id`, `tv_id`, `arating_id`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `tbl_tv_era`
+--
+
+CREATE TABLE `tbl_tv_era` (
+  `tv_era_id` smallint(6) NOT NULL,
+  `tv_id` smallint(6) NOT NULL,
+  `era_id` smallint(6) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `tbl_tv_era`
+--
+
+INSERT INTO `tbl_tv_era` (`tv_era_id`, `tv_id`, `era_id`) VALUES
+(1, 1, 1),
+(2, 2, 1),
+(3, 3, 1),
+(4, 4, 1),
+(5, 5, 2),
+(6, 6, 2),
+(7, 7, 2),
+(8, 8, 2),
+(9, 9, 3),
+(10, 10, 3),
+(11, 11, 3),
+(12, 12, 3),
+(13, 13, 4),
+(14, 14, 4),
+(15, 15, 4),
+(16, 16, 4),
+(17, 17, 5),
+(18, 18, 5),
+(19, 19, 5),
+(20, 20, 5);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `tbl_user`
 --
 
@@ -446,8 +585,8 @@ CREATE TABLE `tbl_user` (
 
 INSERT INTO `tbl_user` (`user_id`, `user_fname`, `user_name`, `user_pass`, `user_email`, `user_date`, `user_ip`, `user_admin`, `user_access`) VALUES
 (1, 'trevor', 'user1', 'password', 't@t.com', '2019-02-01 19:07:35', '::1', 1, 5),
-(2, 'kate', 'user2', 'password', 't@t.com', '2019-02-01 20:11:28', '127.0.0.1:8000', 1, 5),
-(3, 'mad', 'user3', 'password', 't@t.com', '2019-02-01 20:12:40', '127.0.0.1:8000', 0, 3);
+(2, 'kate', 'user2', 'password', 't@t.com', '2019-02-01 20:11:28', '::1', 1, 5),
+(3, 'mad', 'user3', 'password', 't@t.com', '2019-02-01 20:12:40', '::1', 0, 3);
 
 --
 -- Indexes for dumped tables
@@ -472,10 +611,22 @@ ALTER TABLE `tbl_audio_arating`
   ADD PRIMARY KEY (`audio_arating_id`);
 
 --
+-- Indexes for table `tbl_audio_era`
+--
+ALTER TABLE `tbl_audio_era`
+  ADD PRIMARY KEY (`audio_era_id`);
+
+--
 -- Indexes for table `tbl_comments`
 --
 ALTER TABLE `tbl_comments`
   ADD PRIMARY KEY (`comments_id`);
+
+--
+-- Indexes for table `tbl_era`
+--
+ALTER TABLE `tbl_era`
+  ADD PRIMARY KEY (`era_id`);
 
 --
 -- Indexes for table `tbl_genre`
@@ -496,6 +647,12 @@ ALTER TABLE `tbl_mov_arating`
   ADD PRIMARY KEY (`mov_arating_id`);
 
 --
+-- Indexes for table `tbl_mov_era`
+--
+ALTER TABLE `tbl_mov_era`
+  ADD PRIMARY KEY (`mov_era_id`);
+
+--
 -- Indexes for table `tbl_mov_genre`
 --
 ALTER TABLE `tbl_mov_genre`
@@ -512,6 +669,12 @@ ALTER TABLE `tbl_tv`
 --
 ALTER TABLE `tbl_tv_arating`
   ADD PRIMARY KEY (`tv_arating_id`);
+
+--
+-- Indexes for table `tbl_tv_era`
+--
+ALTER TABLE `tbl_tv_era`
+  ADD PRIMARY KEY (`tv_era_id`);
 
 --
 -- Indexes for table `tbl_user`
@@ -539,10 +702,20 @@ ALTER TABLE `tbl_audio`
 ALTER TABLE `tbl_audio_arating`
   MODIFY `audio_arating_id` smallint(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 --
+-- AUTO_INCREMENT for table `tbl_audio_era`
+--
+ALTER TABLE `tbl_audio_era`
+  MODIFY `audio_era_id` smallint(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+--
 -- AUTO_INCREMENT for table `tbl_comments`
 --
 ALTER TABLE `tbl_comments`
   MODIFY `comments_id` mediumint(8) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+--
+-- AUTO_INCREMENT for table `tbl_era`
+--
+ALTER TABLE `tbl_era`
+  MODIFY `era_id` smallint(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `tbl_genre`
 --
@@ -559,6 +732,11 @@ ALTER TABLE `tbl_movies`
 ALTER TABLE `tbl_mov_arating`
   MODIFY `mov_arating_id` smallint(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 --
+-- AUTO_INCREMENT for table `tbl_mov_era`
+--
+ALTER TABLE `tbl_mov_era`
+  MODIFY `mov_era_id` smallint(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+--
 -- AUTO_INCREMENT for table `tbl_mov_genre`
 --
 ALTER TABLE `tbl_mov_genre`
@@ -573,6 +751,11 @@ ALTER TABLE `tbl_tv`
 --
 ALTER TABLE `tbl_tv_arating`
   MODIFY `tv_arating_id` smallint(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+--
+-- AUTO_INCREMENT for table `tbl_tv_era`
+--
+ALTER TABLE `tbl_tv_era`
+  MODIFY `tv_era_id` smallint(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 --
 -- AUTO_INCREMENT for table `tbl_user`
 --
