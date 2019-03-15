@@ -29,6 +29,10 @@
         display: block;
     }
 
+    .media-type-text:last-of-type {
+        margin-top: 13px;
+    }
+
     .media-container:first-of-type { padding-bottom: 30px; }
 
     .media-thumb { height: 165px; }
@@ -38,21 +42,6 @@
     audio {
         margin-left: 50%;
         margin-right: 50%;
-    }
-}
-
-@media (min-width: 992px) {
-    .display-4 {
-        font-size: 3.5rem;
-    }
-
-    .thumb-wrapper { 
-        max-height: 350px; 
-        overflow-x: auto; 
-    }
-    
-    .media-title {
-        font-size: 1.75em;
     }
 
     .media-type { 
@@ -91,4 +80,20 @@
             margin-right: 50%;
         }
     }
+}
+
+@media (min-width: 992px) {
+    .display-4 {
+        font-size: 3.5rem;
+    }
+
+    .thumb-wrapper { 
+        max-height: 350px; 
+        overflow-x: auto; 
+    }
+    
+    .media-title {
+        font-size: 1.75em;
+    }
+
 }

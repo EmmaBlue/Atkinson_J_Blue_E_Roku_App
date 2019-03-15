@@ -53,7 +53,7 @@ export default {
                             <i v-bind:class="[media.iconClass]"></i>
                         </span>
 
-                        <span class="d-none d-md-block">{{ media.description }}</span>
+                        <span class="d-none d-md-block media-type-text">{{ media.description }}</span>
                     </li>
                 </ul>
             </nav>

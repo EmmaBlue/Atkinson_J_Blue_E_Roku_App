@@ -33,13 +33,13 @@
 							<ul class="nav_list">
 								 <li class="nav_item"><router-link to="/" class="nav_link">Home</router-link></li>
 								 <li v-if="administrator" class="nav_item"><router-link to="/admin" class="nav_link">Admin Settings</router-link></li>
-								 <li class="nav_item"  v-on:click="logout()"><i class="fas fa-power-off"></li>
+								 <li class="nav_item"  v-on:click="logout()"><i class="fas fa-power-off"></i></li>
 							</ul>
 						</nav>
 				</div>
 				<section id="logo-sect">
 					<h2 class="hidden">Logo</h2>
-					<div><p>Roku TV</p></div>
+					<div class="Rokutv-text"><p>Roku TV</p></div>
 				  </section>
 			  </header>
 		</div>
@@ -59,7 +59,7 @@
 	</div> <!-- end container fluid -->
 
 	<!-- first thing in component templates should be a container -->
-	<router-view />
+	<router-view></router-view>
 
 	</main>
 
