@@ -11,6 +11,24 @@
 
     .media-year { float: none; }
 
+    .img-audio {
+        max-width: 100%;
+        margin-top: 10px;
+        display: block;
+    }
+    
+    .img-tv {
+        max-width: 100%;
+        margin-top: 10px;
+        display: block;
+    }
+    
+    .img-movies {
+        max-width: 100%;
+        margin-top: 10px;
+        display: block;
+    }
+
     .media-container:first-of-type { padding-bottom: 30px; }
 
     .media-thumb { height: 165px; }

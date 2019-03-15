@@ -10,9 +10,22 @@
     margin: 0 auto;
 }
 .media-container { color: $white; }
-.media-container img {
+
+.img-audio {
     max-width: 100%;
     margin-top: 10px;
+}
+
+.img-tv {
+    max-width: 100%;
+    margin-top: 10px;
+    display: none;
+}
+
+.img-movies {
+    max-width: 100%;
+    margin-top: 10px;
+    display: none;
 }
 
 .media-container:first-of-type { padding-bottom: 1em; }
