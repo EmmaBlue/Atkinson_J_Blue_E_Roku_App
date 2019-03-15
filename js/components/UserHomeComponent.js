@@ -11,6 +11,7 @@ export default {
             <div class="col-12 order-1 order-md-1 col-md-3 media-container">
                 <h4 class="media-title">{{currentMediaDetails.movies_title}}</h4>
                 <img class="img-movies" :src="'images/video/' + currentMediaDetails.movies_cover"/>
+                <iframe src="https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Frokuflashback.com&width=20&layout=button_count&action=like&size=large&show_faces=false&share=true&height=46&appId" width="300" height="46" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
             </div>
 
             <div class="col-12 order-2 order-md-2 col-md-9 media-container">
@@ -24,6 +25,7 @@ export default {
             <div class="col-12 order-1 order-md-1 col-md-3 media-container">
                 <h4 class="media-title">{{currentMediaDetails.tv_title}}</h4>
                 <img class="img-tv" :src="'images/tv/' + currentMediaDetails.tv_cover"/>
+                <iframe src="https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Frokuflashback.com&width=20&layout=button_count&action=like&size=large&show_faces=false&share=true&height=46&appId" width="300" height="46" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
             </div>
 
             <div class="col-12 order-2 order-md-2 col-md-9 media-container">
@@ -37,7 +39,7 @@ export default {
             <div class="col-12 order-2 order-md-1 col-md-6 media-container">
                 <h4 class="media-title">{{currentMediaDetails.audio_title}}</h4>
                 <img class="img-audio" :src="'images/audio/' + currentMediaDetails.audio_cover"/>
-
+                <iframe src="https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Frokuflashback.com&width=20&layout=button_count&action=like&size=large&show_faces=false&share=true&height=46&appId" width="300" height="46" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
                 <div class="col-12 order-1 order-md-2 col-md-6 audio-wrapper">
                 <audio autoplay controls :src="'audio/' + currentMediaDetails.audio_src"/>
             </div>
