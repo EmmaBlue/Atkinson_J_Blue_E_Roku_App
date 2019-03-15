@@ -20,10 +20,10 @@
 		<div class="row">
 
 			<header  id="main-header">
-				<div class="navArea">
+				<div v-if="authenticated" class="navArea">
 					<!-- Start Mobile Nav -->
 					<input type="checkbox" class="nav_box" id="nav-toggle">
-					<label v-if="authenticated" for="nav-toggle" class="nav_but">
+					<label for="nav-toggle" class="nav_but">
 							<span class="nav_icon">&nbsp;</span>
 					</label>
 					<!-- End Mobile Nav -->
