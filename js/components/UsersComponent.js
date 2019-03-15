@@ -22,7 +22,7 @@ export default {
 
 	data() {
 	  return {
-		message: `Who's Using Roku?`,
+		message: `Select your profile:`,
 
 		userList: []
 	  }

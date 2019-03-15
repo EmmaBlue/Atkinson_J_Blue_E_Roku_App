@@ -7,6 +7,11 @@
 @import 'modules/mediaqueries';
 @import 'modules/_nav';
 
+html {
+    background-color: $white;
+}
+
+
 #app {
     background-color: $white;
 }
@@ -18,6 +23,12 @@ body {
     font-family: $reg-font;
     background: none;
 
+    h1 {
+        font-family: $reg-font;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+
     h2 {
 
         font-family: $reg-font;
@@ -28,4 +39,16 @@ body {
 .hidden {
 
     display: none;
+}
+
+.Rokutv-text {
+    margin-bottom: 24px;
+}
+
+.Rokutv-text p {
+    display: none;
+}
+
+#main-header {
+    padding: 20px 14px;
 }
