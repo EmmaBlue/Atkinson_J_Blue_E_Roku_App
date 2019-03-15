@@ -1,8 +1,11 @@
 export default {
-    props: ['currentuser'],
+    props: ['currentuser', 'administrator'],
 
     template: `
     <div class="container">
+        <div class="row" v-if="administrator == true">
+            <p>Hello</p>
+        </div>
     <!-- render this if we're viewing film -->
         <div class="row" v-if="activeMediaType == 'video' && retrievedMedia.length > 0">
             <div class="col-12 order-2 order-md-1 col-md-3 media-container">
@@ -45,7 +48,7 @@ export default {
         <div class="row"> <!-- 2-up for nav and media info -->
             <nav class="col-12 col-sm-3 side-nav">
                 <ul class="media-type">
-                    <li v-for="media in mediaTypes" :data-type="media.description" @click="loadMedia(null, media.description)">
+                    <li v-for="media in mediaTypes" :data-type="media.description" @click="loadMedia(null, media.description, this.permissionLevel)">
                         <span>
                             <i v-bind:class="[media.iconClass]"></i>
                         </span>
@@ -59,62 +62,62 @@ export default {
                 <!-- genres for video -->
                     <ul class="media-genres" v-if="activeMediaType == 'video'" >
                         <li>
-                            <a href="1950" @click.prevent="loadMedia('1950', 'video')">1950</a>
+                            <a href="1950" @click.prevent="loadMedia('1950', 'video',this.permissionLevel)">1950</a>
                         </li>
                         <li>
-                            <a href="1960" @click.prevent="loadMedia('1960', 'video')">1960</a>
+                            <a href="1960" @click.prevent="loadMedia('1960', 'video',this.permissionLevel)">1960</a>
                         </li>
                         <li>
-                            <a href="1970" @click.prevent="loadMedia('1970', 'video')">1970</a>
+                            <a href="1970" @click.prevent="loadMedia('1970', 'video',this.permissionLevel)">1970</a>
                         </li>
                         <li>
-                            <a href="1980" @click.prevent="loadMedia('1980', 'video')">1980</a>
+                            <a href="1980" @click.prevent="loadMedia('1980', 'video', this.permissionLevel)">1980</a>
                         </li>
                         <li>
-                            <a href="1990" @click.prevent="loadMedia('1990', 'video')">1990</a>
+                            <a href="1990" @click.prevent="loadMedia('1990', 'video', this.permissionLevel)">1990</a>
                         </li>
                         <li>
-                            <a href="all" @click.prevent="loadMedia(null, null)">All</a>
+                            <a href="all" @click.prevent="loadMedia(null, 'video', this.permissionLevel )">All</a>
                         </li>
                     </ul>
                     <ul v-else-if="activeMediaType == 'television'" class="media-genres" >
                         <li>
-                            <a href="1950" @click.prevent="loadMedia('1950', 'television')">1950</a>
+                            <a href="1950" @click.prevent="loadMedia('1950', 'television', this.permissionLevel)">1950</a>
                         </li>
                         <li>
-                            <a href="1960" @click.prevent="loadMedia('1960', 'television')">1960</a>
+                            <a href="1960" @click.prevent="loadMedia('1960', 'television',this.permissionLevel)">1960</a>
                         </li>
                         <li>
-                            <a href="1970" @click.prevent="loadMedia('1970', 'television')">1970</a>
+                            <a href="1970" @click.prevent="loadMedia('1970', 'television',this.permissionLevel)">1970</a>
                         </li>
                         <li>
-                            <a href="1980" @click.prevent="loadMedia('1980', 'television')">1980</a>
+                            <a href="1980" @click.prevent="loadMedia('1980', 'television',this.permissionLevel)">1980</a>
                         </li>
                         <li>
-                            <a href="1990" @click.prevent="loadMedia('1990', 'television')">1990</a>
+                            <a href="1990" @click.prevent="loadMedia('1990', 'television',this.permissionLevel)">1990</a>
                         </li>
                         <li>
-                            <a href="all" @click.prevent="loadMedia(null, null)">All</a>
+                            <a href="all" @click.prevent="loadMedia(null, 'television', this.permissionLevel)">All</a>
                         </li>
                     </ul>
                     <ul v-else class="media-genres">
                         <li>
-                            <a href="1950" @click.prevent="loadMedia('1950', 'audio')">1950</a>
+                            <a href="1950" @click.prevent="loadMedia('1950', 'audio',this.permissionLevel)">1950</a>
                         </li>
                         <li>
-                            <a href="1960" @click.prevent="loadMedia('1960', 'audio')">1960</a>
+                            <a href="1960" @click.prevent="loadMedia('1960', 'audio', this.permissionLevel)">1960</a>
                         </li>
                         <li>
-                            <a href="1970" @click.prevent="loadMedia('1970', 'audio')">1970</a>
+                            <a href="1970" @click.prevent="loadMedia('1970', 'audio', this.permissionLevel)">1970</a>
                         </li>
                         <li>
-                            <a href="1980" @click.prevent="loadMedia('1980', 'audio')">1980</a>
+                            <a href="1980" @click.prevent="loadMedia('1980', 'audio', this.permissionLevel)">1980</a>
                         </li>
                         <li>
-                            <a href="1990" @click.prevent="loadMedia('1990', 'audio')">1990</a>
+                            <a href="1990" @click.prevent="loadMedia('1990', 'audio', this.permissionLevel)">1990</a>
                         </li>
                         <li>
-                            <a href="all" @click.prevent="loadMedia(null, null)">All</a>
+                            <a href="all" @click.prevent="loadMedia(null, 'audio', this.permissionLevel)">All</a>
                         </li>
                     </ul>
 
@@ -137,6 +140,8 @@ export default {
             currentMediaDetails: {
                 source: "lucy.mp4",
             },
+
+            permissionLevel: '',
 
             // could add more media types here in future
             mediaTypes: [
@@ -164,29 +169,68 @@ export default {
     created: function() {
         console.log('params:', this.$route.params);
 
-        this.loadMedia(null, "video");
+        this.loadMedia(null, "video", 'G');
     },
+
+    /*mounted: function() {
+        console.log('params:', this.$route.params);
+
+        this.loadMedia(null, "video");
+        //console.log(this.administrator);
+
+    },*/
 
     methods: {
 
-        loadMedia(filter, mediaType) {
-            debugger;
+        loadMedia(filter, mediaType, kid) {
             // set the active media type
-           // if (this.activeMediaType !== mediaType && mediaType !== null)
             if (this.activeMediaType !== mediaType && mediaType !== null) {
                 this.activeMediaType = mediaType;
             }
+
+            let url;
             // build the url based on any filter we pass in (will need to expand on this for audio)
 
-            let url = (filter == null) ? `./admin/index.php?media=${this.activeMediaType}` : `./admin/index.php?media=${mediaType}&&filter=${filter}`;
+            /*let url = (filter == null) ? `./admin/index.php?media=${this.activeMediaType}` : `./admin/index.php?media=${mediaType}&&filter=${filter}`;*/
+
+            if (filter == null && kid == null){
+
+                url = `./admin/index.php?media=${this.activeMediaType}`
+            }
+
+            else if (filter == null) {
+
+                url = `./admin/index.php?media=${this.activeMediaType}&&kid=${kid}`;
+
+            }
+
+            else if (kid == null) {
+
+                url = `./admin/index.php?media=${mediaType}&&filter=${filter}`
+
+            }
+
+            else {
+
+                url = `./admin/index.php?media=${mediaType}&&filter=${filter}&&kid=${kid}`
+
+            }
 
             fetch(url)
                 .then(res => res.json())
                 .then(data => {
+                // sort movies by user access type
+                    if (localStorage.getItem("admin", data.admin) == 1) {
+                        this.permissionLevel = null;
+                    } else {
+                        this.permissionLevel = 'G';
+
+                    }
                     // we're gettin them all, dump it all in the media container
                     this.retrievedMedia = data;
                     // grab the first one in the list and make it active
                     this.currentMediaDetails = data[0];
+
                 })
             .catch(function(error) {
                 console.error(error);
