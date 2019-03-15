@@ -1,7 +1,33 @@
 .fs-video { width: 100% }
 
-.media-container { background: darken($dark-bg, 15%); }
-.media-container { color: white; }
+.main-media-container
+{
+    background-color: $main-color;
+}
+
+.media-container {
+    background-color: $main-color;
+    margin: 0 auto;
+}
+.media-container { color: $white; }
+
+.img-audio {
+    max-width: 100%;
+    margin-top: 10px;
+}
+
+.img-tv {
+    max-width: 100%;
+    margin-top: 10px;
+    display: none;
+}
+
+.img-movies {
+    max-width: 100%;
+    margin-top: 10px;
+    display: none;
+}
+
 .media-container:first-of-type { padding-bottom: 1em; }
 .media-container:last-of-type { padding-left: 0; padding-right: 0; }
 
@@ -10,6 +36,7 @@
     font-size: 1.5em; 
     padding-top: 1em;
     font-weight: bolder; 
+    text-align: center;
 }
 
 .media-details { font-size: 1.2em; padding: 0.5em 0; }
@@ -17,7 +44,7 @@
 .media-year, .media-time { font-size: 1em; }
 .media-year { display: block; float: right; }
 
-.side-nav { background: darken($dark-bg, 9%) }
+.side-nav { background-color: $main-color; }
 
 // left hand pad list -> audio, film television
 .media-type { 
@@ -38,14 +65,14 @@
         }
     }
 
-    li:hover span:first-of-type { color: $roku-purple }
+    li:hover span:first-of-type { color: $white }
 }
 
 // genre filter links
 
 .media-genres {
     list-style-type: none;
-    background: darken($dark-bg, 10%);
+    background: $main-color;
     margin: 0;
     padding: 1em 1em 1em 1.5em;
 
@@ -58,7 +85,7 @@
             text-decoration: none;
         }
         
-        a:hover { color: $roku-purple; }
+        a:hover { color: $white; }
     }
 
     li::after {
@@ -88,16 +115,19 @@
 .audio-thumb { height: 150px; }
 
 .audio-wrapper {
-    background: $dark-bg;
+    background: $main-color;
+    text-align: center;
+    
 
     img { max-width: 85%; display: block; margin: 0 auto; padding: 4% }
 
 }
 
 audio {
-    width: 70%;
-    margin: 0 13%;
+    width: 100%;
+    margin-bottom: 20px;
     position: absolute;
     bottom: 12%;
     opacity: 0.8;
+    left: 0;
 }

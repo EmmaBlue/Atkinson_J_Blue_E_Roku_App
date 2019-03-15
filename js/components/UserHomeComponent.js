@@ -8,12 +8,12 @@ export default {
         </div>
     <!-- render this if we're viewing film -->
         <div class="row" v-if="activeMediaType == 'video' && retrievedMedia.length > 0">
-            <div class="col-12 order-2 order-md-1 col-md-3 media-container">
+            <div class="col-12 order-1 order-md-1 col-md-3 media-container">
                 <h4 class="media-title">{{currentMediaDetails.movies_title}}</h4>
-                <img :src="'images/video/' + currentMediaDetails.movies_cover"/>
+                <img class="img-movies" :src="'images/video/' + currentMediaDetails.movies_cover"/>
             </div>
 
-            <div class="col-12 order-1 order-md-2 col-md-9 media-container">
+            <div class="col-12 order-2 order-md-2 col-md-9 media-container">
                 <video autoplay controls muted :src="'video/' + currentMediaDetails.movies_trailer" class="fs-video"></video>
             </div>
         </div>
@@ -21,27 +21,27 @@ export default {
     <!-- render this if we're viewing television -->
 
         <div class="row" v-if="activeMediaType == 'television' && retrievedMedia.length > 0">
-            <div class="col-12 order-2 order-md-1 col-md-3 media-container">
+            <div class="col-12 order-1 order-md-1 col-md-3 media-container">
                 <h4 class="media-title">{{currentMediaDetails.tv_title}}</h4>
-                <img :src="'images/tv/' + currentMediaDetails.tv_cover"/>
+                <img class="img-tv" :src="'images/tv/' + currentMediaDetails.tv_cover"/>
             </div>
 
-            <div class="col-12 order-1 order-md-2 col-md-9 media-container">
+            <div class="col-12 order-2 order-md-2 col-md-9 media-container">
                 <video autoplay controls muted :src="'video/tv/' + currentMediaDetails.tv_src" class="fs-video"></video>
             </div>
         </div>
 
     <!-- render this if we're viewing audio -->
 
-        <div class="row" v-if="activeMediaType == 'audio' && retrievedMedia.length > 0">
+        <div class="row main-media-container" v-if="activeMediaType == 'audio' && retrievedMedia.length > 0">
             <div class="col-12 order-2 order-md-1 col-md-6 media-container">
                 <h4 class="media-title">{{currentMediaDetails.audio_title}}</h4>
-                <img :src="'images/audio/' + currentMediaDetails.audio_cover"/>
+                <img class="img-audio" :src="'images/audio/' + currentMediaDetails.audio_cover"/>
+
+                <div class="col-12 order-1 order-md-2 col-md-6 audio-wrapper">
+                <audio autoplay controls :src="'audio/' + currentMediaDetails.audio_src"/>
             </div>
 
-            <div class="col-12 order-1 order-md-2 col-md-6 audio-wrapper">
-                <audio autoplay controls :src="'audio/' + currentMediaDetails.audio_src"/>
-                <img :src="'images/audio/' + currentMediaDetails.audio_cover" alt="album art" class="img-fluid"/>
             </div>
         </div>
 
