@@ -1,14 +1,14 @@
-/* globals localStorage */
 
+/* Sets local storage to assess if user is parent or child*/
 export default {
-    login(email, pass, cb) {
+    login(user, pwd, cb) {
       cb = arguments[arguments.length - 1];
       if (localStorage.token) {
         if (cb) cb(true);
         this.onChange(true);
         return;
       }
-      pretendRequest(email, pass, res => {
+      pretendRequest(user, pwd, res => {
         if (res.authenticated) {
           localStorage.token = res.token;
           if (cb) cb(true);
@@ -20,26 +20,12 @@ export default {
       });
     },
 
-    getToken() {
-      return localStorage.token;
-    },
-
-    logout(cb) {
-      delete localStorage.token;
-      if (cb) cb();
-      this.onChange(false);
-    },
-
-    loggedIn() {
-      return !!localStorage.token;
-    },
-
     onChange() {}
   };
 
-  function pretendRequest(email, pass, cb) {
+  function pretendRequest(user, pwd, cb) {
     setTimeout(() => {
-      if (email && pass) {
+      if (user && pwd) {
         cb({
           authenticated: true,
           token: Math.random()

@@ -64,7 +64,6 @@ export default {
                         this.isAuth = true;
                     } else {
                         this.$root.$emit("authenticated", true);
-                        // local storage stops working on refresh when this is set to home and not users
                         login.login(this.input.username, this.input.password, loggedIn => {
                             if (!loggedIn) {
                               this.error = true;
