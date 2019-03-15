@@ -1,3 +1,4 @@
+import login from "../login.js";
 export default {
     template: `
         <div class="container">
@@ -5,6 +6,7 @@ export default {
                 <img src="images/roku.svg" id="loginRokuLogo" alt="Roku Logo" width="250">
                 <img src="images/flashback-purple.svg" id="loginFlashbackLogo" alt="Flashback Logo" width="200">
                 <form id="loginForm">
+                    <h1 id="isAuth" v-if="isAuth">Username or Password are not correct. Please try again.</h1>
                     <div class="form-row align-items-center">
                         <div class="offset-md-4 col-md-4 my-2">
                             <p class="form-titles">Username:</p>
@@ -22,25 +24,26 @@ export default {
                             <button v-on:click.prevent="login()" type="submit" class="btn btn-primary" id="signInBtn">Sign In</button>
                         </div>
                     </div>
-                </form>            
+                </form>
             </div>
         </div>
      `,
- 
+
      data() {
          return {
              input: {
                  username: "",
                  password: ""
              },
+             isAuth: false
 
          }
      },
- 
+
      methods: {
          login() {
             //console.log(this.$parent.mockAccount.username);
- 
+
             if(this.input.username != "" && this.input.password != "") {
             // fetch the user from the DB
             // generate the form data
@@ -50,7 +53,6 @@ export default {
              formData.append("password", this.input.password);
 
              let url = `./admin/scripts/admin_login.php`;
- 
              fetch(url, {
                     method: 'POST',
                     body: formData
@@ -58,15 +60,25 @@ export default {
                  .then(res => res.json())
                  .then(data => {
                     if (typeof data != "object") { // means that we're not getting a user object back
-                        console.warn(data);
-                        console.error("authentication failed, please try again");
-                        this.$emit("autherror", data);
+                        console.log("Authentication Failed");
+                        this.isAuth = true;
                     } else {
-                        this.$emit("authenticated", true, data, true);
-                        this.$router.replace({ name: "users" });
+                        this.$root.$emit("authenticated", true);
+                        // local storage stops working on refresh when this is set to home and not users
+                        login.login(this.input.username, this.input.password, loggedIn => {
+                            if (!loggedIn) {
+                              this.error = true;
+                            } else {
+                              console.log("localStorage.token is: ", localStorage.token);
+                              // Save data to the current local store if Logged user is Admin
+                              localStorage.setItem("admin", data.admin);
+                            }
+                        });
+
+                        this.$router.push({ name: "home" });
                     }
                 })
-             .catch(function(error) { 
+             .catch(function(error) {
                  console.log(error);
              });
         } else {

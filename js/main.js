@@ -16,7 +16,7 @@ let router = new VueRouter({
 });
 
 const vm = new Vue({
- 
+
   data: {
     socItems: [
 
@@ -38,7 +38,7 @@ const vm = new Vue({
 
     user: [],
 
-    //currentUser: {},
+    currentUser: [],
 
     toastmessage: "Login failed!"
   },
@@ -50,30 +50,39 @@ const vm = new Vue({
     // the localstorage session will persist until logout
 
     if (localStorage.getItem("cachedUser")) {
-      let user = JSON.parse(localStorage.getItem("cachedUser"));
+      let cacheUser = JSON.parse(localStorage.getItem("cachedUser"));
+      console.log(cacheUser);
       this.authenticated = true;
       // params not setting properly, so this route needs to be debugged a bit...
-      this.$router.push({ name: "home", params: { currentuser: user }});
+      this.$router.push({ name: "home", params: { currentUser: cacheUser }});
     } else {
       this.$router.push({ path: "/login"} );
-    }    
+    }
+  },
+
+  mounted: function() {
+
+    this.$root.$on("authenticated", data => {
+      this.authenticated = data;
+
+    });
   },
 
   methods: {
-    setAuthenticated(status, data, access) {
-      this.authenticated = status;
-      this.user = data;
-      if (this.user.admin == 1){
-
+    setAuthenticated() {
+      this.authenticated = true;
+      /*this.user = data;
+      //if administrator has parent level permissions
+      if (this.user.admin == 1) {
         this.administrator = access;
-      }
+      }*/
     },
 
-    popError(errorMsg) {
+    /*popError(errorMsg) {
       // set the error message string and show the toast notification
       this.toastmessage = errorMsg;
       $('.toast').toast('show');
-    },
+    },*/
 
     logout() {
       // delete local session
@@ -83,8 +92,8 @@ const vm = new Vue({
       // push user back to login page
       this.$router.push({ path: "/login" });
       this.authenticated = false;
-      
-      
+
+
     }
   },
 
