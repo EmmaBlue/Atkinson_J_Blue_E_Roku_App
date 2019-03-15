@@ -30,15 +30,15 @@ export default {
 
     <!-- render this if we're viewing audio -->
 
-        <div class="row" v-if="activeMediaType == 'audio' && retrievedMedia.length > 0">
+        <div class="row main-media-container" v-if="activeMediaType == 'audio' && retrievedMedia.length > 0">
             <div class="col-12 order-2 order-md-1 col-md-6 media-container">
                 <h4 class="media-title">{{currentMediaDetails.audio_title}}</h4>
                 <img :src="'images/audio/' + currentMediaDetails.audio_cover"/>
+
+                <div class="col-12 order-1 order-md-2 col-md-6 audio-wrapper">
+                <audio autoplay controls :src="'audio/' + currentMediaDetails.audio_src"/>
             </div>
 
-            <div class="col-12 order-1 order-md-2 col-md-6 audio-wrapper">
-                <audio autoplay controls :src="'audio/' + currentMediaDetails.audio_src"/>
-                <img :src="'images/audio/' + currentMediaDetails.audio_cover" alt="album art" class="img-fluid"/>
             </div>
         </div>
 
