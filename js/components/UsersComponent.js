@@ -9,7 +9,7 @@ export default {
 			</div>
 
 
-			<user v-for="(user, index) in userList" :liveuser="user" :key="index"></user>     
+			<user v-for="(user, index) in userList" :liveuser="user" :key="index"></user>
 
 		</div>
 	</div>
