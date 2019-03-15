@@ -11,6 +11,10 @@
 
     .media-year { float: none; }
 
+    iframe {
+        width: 123px;
+    }
+
     .img-audio {
         max-width: 100%;
         margin-top: 10px;
@@ -42,6 +46,10 @@
     audio {
         margin-left: 50%;
         margin-right: 50%;
+    }
+
+    iframe {
+        width: 130px;
     }
 
     .media-type { 
