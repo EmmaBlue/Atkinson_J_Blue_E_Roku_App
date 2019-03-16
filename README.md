@@ -1,12 +1,12 @@
 # Audio Video Application
 
-Our one page website of a video player.
+Our website of a video player.
 
 ## Features
 
-* User Login and Profile
+* User Login
 * Filter Video and Audio
-* User Comments, Rating and Sharing on Social Media
+* Video and Audio Displays Based on User Permissions
 
 ## Getting Started
 
@@ -25,11 +25,11 @@ $ git init
 
 # Clone this repository
 
-$ git clone https://github.com/EmmaBlue/Atkinson_J_Blue_E_AV_App.git
+$ git clone https://github.com/EmmaBlue/Atkinson_J_Blue_E_Roku_App.git
 
 # Go into the repository
 
-$ cd Atkinson_J_Blue_E_AV_App
+$ cd Atkinson_J_Blue_E_Roku_App
 
 # Install relevant node modules
 
@@ -41,9 +41,8 @@ And you’re done!
 
 ## Built With
 
-* [CSS Grid](https://cssreference.io/css-grid/)
-* [CSS Flexbox](https://cssreference.io/flexbox/)
-* [Javascript](https://www.javascript.com/) - Used for custom video player
+* [Bootstrap](https://getbootstrap.com/)
+* [Vue](https://vuejs.org/)
 
 ## Authors
 
